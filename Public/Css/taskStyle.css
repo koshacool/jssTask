@@ -1,3 +1,4 @@
+/*Style for whole page*/
 body {
     margin: 0;
     line-height: 1.1;
@@ -6,18 +7,21 @@ body {
     color: white;
 }
 
+/*Header block*/
 .header {
     height: 85px;
     background-color: #3e3e43;
 }
 
-.headerContentBlock {
+/*Block for buttons in header*/
+.headerButtonsBlock {
     min-width: 110px;
     max-width: 240px;
     margin: auto;
     height: 100%;
 }
-/* Link buttom style */
+
+/* Style link as button */
 .linkButton {
     float: left;
     margin: auto;
@@ -38,6 +42,7 @@ body {
     background: linear-gradient(#404040, #090909);
 }
 
+/*Position and styling link inside block*/
 .linkButton a {
     text-decoration: none;
     color: #e9eaea;
@@ -46,18 +51,19 @@ body {
     display: block;
 }
 
-
+/*Footer style*/
 .footer {
     position: absolute;
     bottom: 10px;
     margin-top: 20px;
-    width: 100%;   
-    text-align: center;   
+    width: 100%;
+    text-align: center;
     background-color: #3e3e43;
-    color: white;   
+    color: white;
 }
 
-.infoBlock {
+
+.contentBlock {
     width: 40%;
     margin: auto;
     color: black;
