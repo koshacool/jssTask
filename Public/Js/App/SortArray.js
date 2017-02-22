@@ -1,7 +1,8 @@
 ;
 define(function () {
-    var array = [23, 56, 3, 6, 8, 3, 76, 4];
+    var array = [23, 56, 3, 6, 8, 3, 76, 4, 25, 28, 99, 0, 43, 65, 87];
     return {
+        arr: array,
         /**
          * [bubble description]
          * Sort array in ascending order by bubble method
@@ -10,6 +11,7 @@ define(function () {
          * @return array
          */
         bubble: function () {
+            var now = new Date();
             var tempValue;
             for (var i = 0; i < array.length - 1; i++) {
                 for (var j = array.length - 1; j > i; j--) {
@@ -20,7 +22,9 @@ define(function () {
                     }
                 }
             }
-
+            var newTime = new Date();
+            var time = newTime - now;
+            array.time = time;
             return array;
         },
 

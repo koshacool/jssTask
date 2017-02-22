@@ -1,24 +1,28 @@
 ;
 define(['sort'], function (sort) {
     var myData = function () {
+
+
         var infoBlock = document.createElement('div');
         infoBlock.className = 'content';
         infoBlock.id = 'content';
 
-        var title = document.createElement('h1');
-        title.className = 'title';
-        title.innerHTML = 'About me!';
-        infoBlock.appendChild(title);
+
+
+        var image = document.createElement('img');
+        image.className = 'myImage';
+        image.id = 'myImage';
+        image.setAttribute('src', '/Public/Images/myImg.jpg')
+        infoBlock.appendChild(image);
 
         var h1 = document.createElement('h3');
         h1.className = 'title';
-        title.innerHTML = 'Roman Kushytskyy';
+        h1.innerHTML = 'Roman Kushytskyy';
         infoBlock.appendChild(h1);
 
         var info = document.createElement('p');
         info.className = 'info';
-        info.innerHTML = 'My name Roman. I very like programming. I already studied such languages: <br>';
-        infoBlock.appendChild(info);
+        info.innerHTML = 'My name Roman. I very like programming. I already studied such languages: ';
 
 
         var list = document.createElement('ul');
@@ -34,8 +38,9 @@ define(['sort'], function (sort) {
         var li3 = document.createElement('li');
         li3.innerHTML = 'JavaSctipt';
         list.appendChild(li3);
+        info.appendChild(list);
 
-        infoBlock.appendChild(list);
+        infoBlock.appendChild(info);
 
         return infoBlock;
 
@@ -46,23 +51,40 @@ define(['sort'], function (sort) {
         buttonsBLock.className = 'content';
         buttonsBLock.id = 'content';
 
+        var centering = document.createElement('div');
+        centering.className = 'centering';
+
+        var p = document.createElement('p');
+        p.innerHTML = 'Array: [' + sort.arr + '].<br>' +
+            'To sort this array press button';
+        centering.appendChild(p);
+
+
         for (var key in sort) {
-            var button = document.createElement('div');
-            button.className = 'linkButton';
-            button.id = key;
+            if (key != 'arr') {
+                var button = document.createElement('div');
+                button.className = 'linkButton';
+                button.id = key;
 
-            var link = document.createElement('a');
-            link.setAttribute('href', '#');
-            link.innerHTML = key;
-            button.appendChild(link);
+                var link = document.createElement('a');
+                link.setAttribute('href', '#');
+                link.innerHTML = key[0].toUpperCase() + key.slice(1);
+                button.appendChild(link);
 
-            button.addEventListener('click', function (event) {
-                var array = eval('sort.' + key + '()');
-                showSortedArray(array);
-            });
+                button.addEventListener('click', function (event) {
+                    var start = new Date();
+                    var array = eval('sort.' + key + '()');
+                    var end = new Date();
 
-            buttonsBLock.appendChild(button);
+                    alert(start.getMilliseconds() - end.getMilliseconds());
+                    showSortedArray(array);
+                });
+
+                centering.appendChild(button);
+            }
+
         }
+        buttonsBLock.appendChild(centering);
         return buttonsBLock;
     };
 
