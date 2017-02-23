@@ -76,7 +76,9 @@ body {
     margin: auto;
     text-align: center;
 }
-
+.centering > p{
+    display: block;
+}
 
 .content {
     max-width: 50%;
@@ -95,3 +97,4 @@ body {
 li {
     list-style-position: inside;
 }
+

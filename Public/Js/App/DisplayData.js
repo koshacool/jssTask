@@ -1,13 +1,11 @@
 ;
 define(['sort'], function (sort) {
+
+
     var myData = function () {
-
-
         var infoBlock = document.createElement('div');
         infoBlock.className = 'content';
         infoBlock.id = 'content';
-
-
 
         var image = document.createElement('img');
         image.className = 'myImage';
@@ -25,7 +23,6 @@ define(['sort'], function (sort) {
         var info = document.createElement('p');
         info.className = 'info';
         info.innerHTML = 'My name Roman. I very like programming. I already studied such languages: ';
-
 
         var list = document.createElement('ul');
 
@@ -45,22 +42,101 @@ define(['sort'], function (sort) {
         infoBlock.appendChild(info);
 
         return infoBlock;
+    };
+
+    var createArray = function () {
+        var size = document.getElementById('size').value;
+        if (size) {
+            var array = [];
+            for (var i = 0; i < size; i++) {
+                array[i] = i;
+            }
+            document.getElementById('contentBlock').replaceChild(algorithmsButton(shuffleArray(array)), document.getElementById('content'));
+
+        }
+    };
+
+    var getDataToCreateArray = function () {
+        document.getElementById('content').style.opacity = 0.3;
+
+        var content = document.createElement('div');
+        content.className = 'content';
+        content.id = 'content';
+
+        var h2 = document.createElement('h2');
+        h2.innerHTML = 'Enter a number to create array of this size!';
+        content.appendChild(h2);
+
+        var input = document.createElement('input');
+        input.id = 'size';
+        input.value = 100;
+        content.appendChild(input);
+
+
+        var buttonsBlock = document.createElement('div');
+        buttonsBlock.className = 'buttons';
+
+        var buttonYes = document.createElement('div');
+        buttonYes.className = 'linkButton';
+        buttonYes.id = 'Ok';
+        var a1 = document.createElement('a');
+        a1.setAttribute('href', '#');
+        var spanA1 = document.createElement('span');
+        spanA1.innerHTML = 'Ok';
+        a1.appendChild(spanA1);
+        buttonYes.addEventListener('click', function (event) {
+            // var sortedArray = sort[this.id].call(array);
+            createArray();
+
+        });
+        buttonYes.appendChild(a1);
+
+        var buttonNo = document.createElement('div');
+        buttonNo.className = 'linkButton';
+        buttonNo.id = 'cancel';
+        var a2 = document.createElement('a');
+        a2.setAttribute('href', '/');
+        var spanA2 = document.createElement('span');
+        spanA2.innerHTML = 'Cancel';
+        a2.appendChild(spanA2);
+        buttonNo.appendChild(a2);
+
+        buttonsBlock.appendChild(buttonYes);
+        buttonsBlock.appendChild(buttonNo);
+        content.appendChild(buttonsBlock);
+
+        document.getElementById('contentBlock').replaceChild(content, document.getElementById('content'));
+
 
     };
 
-    var algorithmsButton = function () {
+    var shuffleArray = function (array) {
+        var temp = null;
+        for (var i = 0; i < array.length; i++) {
+            var rand = array[0] + Math.random() * (array.length - 1 - array[0]);
+            rand = Math.round(rand);
+            temp = array[i];
+            array[i] = array[rand];
+            array[rand] = temp;
+        }
+        return array;
+    };
+
+    var algorithmsButton = function (array) {
+
         var buttonsBLock = document.createElement('div');
         buttonsBLock.className = 'content';
         buttonsBLock.id = 'content';
 
         var centering = document.createElement('div');
         centering.className = 'centering';
+        centering.id = 'centering';
 
         var p = document.createElement('p');
-        p.innerHTML = 'Array: [' + sort.arr + '].<br>' +
-            'To sort this array press button';
+        p.innerHTML = 'You create array: <br>' +
+            array + '<br>' +
+            'To sort this array and view algorithm\'s code press button';
         centering.appendChild(p);
-
 
         for (var key in sort) {
             if (key != 'arr') {
@@ -74,12 +150,9 @@ define(['sort'], function (sort) {
                 button.appendChild(link);
 
                 button.addEventListener('click', function (event) {
-                    var start = new Date();
-                    var array = eval('sort.' + key + '()');
-                    var end = new Date();
+                    // var sortedArray = sort[this.id].call(array);
+                    showSortedArray(sort[this.id].call(array), this.id);
 
-                    alert(start.getMilliseconds() - end.getMilliseconds());
-                    showSortedArray(array);
                 });
 
                 centering.appendChild(button);
@@ -90,12 +163,23 @@ define(['sort'], function (sort) {
         return buttonsBLock;
     };
 
-    var showSortedArray = function (array) {
-        var div = document.createElement('div');
-        div.className = 'linkButton';
-        div.innerHTML = array;
+    var showSortedArray = function (array, funcName) {
+        document.getElementById('centering').style.opacity = 0.3;
 
+        var div = document.createElement('div');
+        div.className = 'algorithm';
+        div.id = 'algorithm';
+        div.textContent = array;
+        alert(array);
+
+        var infoBlock = document.getElementById('algorithm');
         document.getElementById('content').appendChild(div);
+
+        // if (infoBlock) {
+        //     document.getElementById('content').replaceChild(div, infoBlock);
+        // } else {
+        //     document.getElementById('content').appendChild(div);
+        // }
     };
 
     return {
@@ -105,8 +189,7 @@ define(['sort'], function (sort) {
         },
 
         algorithms: function () {
-            var infoBlock = document.getElementById('contentBlock');
-            infoBlock.replaceChild(algorithmsButton(), document.getElementById('content'));
+            getDataToCreateArray();
         },
 
 
