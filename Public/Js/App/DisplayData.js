@@ -12,7 +12,9 @@ define(['sort'], function (sort) {
         var image = document.createElement('img');
         image.className = 'myImage';
         image.id = 'myImage';
-        image.setAttribute('src', '/Public/Images/myImg.jpg')
+        image.setAttribute('src', '/Public/Images/myImg.jpg');
+        image.setAttribute('width', '250');
+        image.setAttribute('height', '250');
         infoBlock.appendChild(image);
 
         var h1 = document.createElement('h3');
