@@ -15,24 +15,71 @@ define(['sort'], function (sort) {
         image.setAttribute('height', '250');
         infoBlock.appendChild(image);
 
-        var h1 = document.createElement('h3');
+        var h1 = document.createElement('h4');
         h1.className = 'title';
         h1.innerHTML = 'Roman Kushytskyy';
         infoBlock.appendChild(h1);
 
-        var info = document.createElement('p');
-        info.className = 'info';
-        info.innerHTML = '05.08.1985 <br>' +
-            'Ternopil<br>' +
-            '096-821-859-1<br>' +
-            'roman.kushytskyy@gmail.com<br>' +
-                '<b>Education</b><br>' +
-                'Ternopil National Economics University<br>' +
-                'Faculty: Computer Systems and Networks <br>' +
-                'Speciality: Computer Systems Engineer<br>' +
-                '<b>Work experience</b><br>' +
-                'Since 2006 - Computer Systems Engineer at internet provider \'BitterNet\'<br>' +
-            '<b>Skills</b><br>' ;
+        var list = document.createElement('ul');
+        var li = document.createElement('li');
+        li.innerHTML = '05.08.1985';
+        list.appendChild(li);
+
+        var li1 = document.createElement('li');
+        li1.innerHTML = 'Ternopil';
+        list.appendChild(li1);
+
+        var li2 = document.createElement('li');
+        li2.innerHTML = 'roman.kushytskyy@gmail.com';
+        list.appendChild(li2);
+        infoBlock.appendChild(list);
+
+        var h4 = document.createElement('h4');
+        h4.className = 'title';
+        h4.innerHTML = 'Education';
+        infoBlock.appendChild(h4);
+
+
+        var list = document.createElement('ul');
+        var li = document.createElement('li');
+        li.innerHTML = 'Ternopil National Economics University';
+        list.appendChild(li);
+
+        var li1 = document.createElement('li');
+        li1.innerHTML = 'Faculty: Computer Systems and Networks';
+        list.appendChild(li1);
+
+        var li2 = document.createElement('li');
+        li2.innerHTML = 'Speciality: Computer Systems Engineer';
+        list.appendChild(li2);
+        infoBlock.appendChild(list);
+
+            //
+            //     '<b>Work experience</b><br>' +
+            //     'Since 2006 - Computer Systems Engineer at internet provider \'BitterNet\'<br>' +
+            // '<b>Skills</b><br>' ;
+
+
+
+        var h4 = document.createElement('h4');
+        h4.className = 'title';
+        h4.innerHTML = 'Work experience';
+        infoBlock.appendChild(h4);
+
+        var list = document.createElement('ul');
+        var li = document.createElement('li');
+        li.innerHTML = 'Since 2006 - Computer Systems Engineer at internet provider \'BitterNet\'';
+        list.appendChild(li);
+        infoBlock.appendChild(list);
+
+
+
+
+
+        var h4 = document.createElement('h4');
+        h4.className = 'title';
+        h4.innerHTML = 'Skills';
+        infoBlock.appendChild(h4);
 
         var list = document.createElement('ul');
         var li = document.createElement('li');
@@ -40,17 +87,25 @@ define(['sort'], function (sort) {
         list.appendChild(li);
 
         var li1 = document.createElement('li');
-        li1.innerHTML = 'PHP';
+        li1.innerHTML = 'HTML';
+        list.appendChild(li1);
+
+        var li1 = document.createElement('li');
+        li1.innerHTML = 'CSS';
         list.appendChild(li1);
 
         var li2 = document.createElement('li');
-        li2.innerHTML = 'HTML';
+        li2.innerHTML = 'PHP(Laravel)';
+        list.appendChild(li2);
+
+        var li2 = document.createElement('li');
+        li2.innerHTML = 'MySQL';
         list.appendChild(li2);
 
         var li3 = document.createElement('li');
-        li3.innerHTML = 'JavaSctipt';
+        li3.innerHTML = 'JavaSctipt(jQuery, RequireJs)';
         list.appendChild(li3);
-        info.appendChild(list);
+        infoBlock.appendChild(list);
 
         var info1 = document.createElement('p');
         info1.className = 'info';
@@ -61,9 +116,8 @@ define(['sort'], function (sort) {
             'I like programming, because it helps me to create something new and functional, ' +
             'to break a complicate problem down and find working solution. ';
 
-        info.appendChild(info1);
+        infoBlock.appendChild(info1);
 
-        infoBlock.appendChild(info);
 
         return infoBlock;
     };
