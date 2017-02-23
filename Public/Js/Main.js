@@ -2,9 +2,9 @@
 requirejs.config({
     'baseUrl': '/Public/Js',
     'paths': {
-        'sort': 'App/SortArray', 
-        'showData': 'App/DisplayData',        
-    },    
+        'sort': 'App/SortArray',
+        'showData': 'App/DisplayData',
+    },
 
 });
 
@@ -20,6 +20,6 @@ requirejs(['sort', 'showData'], function (sort, showData) {
     // document.getElementById('sort').addEventListener('click', function (event) {
     //     sort.selection(arr);
     // });
-    
-    
+
+
 });

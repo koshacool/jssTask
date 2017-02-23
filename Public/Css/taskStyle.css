@@ -1,31 +1,40 @@
+/*Style for whole page*/
 body {
     margin: 0;
     line-height: 1.1;
     font-family: "Arial Regular", sans-serif;
     background-color: #e9eaea;
     color: white;
+    height: 100%;
 }
 
+.wrapper {
+    min-height: 100%;
+}
+
+/*Header block*/
 .header {
     height: 85px;
     background-color: #3e3e43;
 }
 
-.headerContentBlock {
+/*Block for buttons in header*/
+.headerButtonsBlock {
     min-width: 110px;
     max-width: 240px;
     margin: auto;
     height: 100%;
 }
-/* Link buttom style */
+
+/* Style link as button */
 .linkButton {
-    float: left;
+    text-align: center;
     margin: auto;
     display: inline-block;
     background-color: #6e6d6d;
     width: 100px;
     height: 25px;
-    border: 1px solid white;      
+    border: 1px solid white;
     margin-left: 10px;
     margin-top: 30px;
 }
@@ -38,6 +47,7 @@ body {
     background: linear-gradient(#404040, #090909);
 }
 
+/*Position and styling link inside block*/
 .linkButton a {
     text-decoration: none;
     color: #e9eaea;
@@ -46,21 +56,42 @@ body {
     display: block;
 }
 
-
+/*Footer style*/
 .footer {
     position: absolute;
     bottom: 10px;
     margin-top: 20px;
-    width: 100%;   
-    text-align: center;   
+    width: 100%;
+    left: 0;
+    text-align: center;
+    /*padding-top: 50px;*/
+
     background-color: #3e3e43;
-    color: white;   
+    color: white;
 }
 
-.infoBlock {
-    width: 40%;
+
+
+.centering {
     margin: auto;
+    text-align: center;
+}
+
+
+.content {
+    max-width: 50%;
+    margin: auto;
+
     color: black;
-    text-align: justify;
+    text-align: left;
     word-spacing: normal;
+}
+
+.myImage {
+    float: left;
+    margin-right: 20px;
+}
+
+li {
+    list-style-position: inside;
 }
