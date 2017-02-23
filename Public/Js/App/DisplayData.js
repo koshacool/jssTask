@@ -134,8 +134,8 @@ define(['sort'], function (sort) {
 
         var p = document.createElement('p');
         p.innerHTML = 'You create array: <br>' +
-            array + '<br>' +
-            'To sort this array and view algorithm\'s code press button';
+            '[' + array.join(', ') + '] <br>' +
+            '<b>To sort this array and view algorithm\'s code press button.</b>';
         centering.appendChild(p);
 
         for (var key in sort) {
@@ -163,23 +163,96 @@ define(['sort'], function (sort) {
         return buttonsBLock;
     };
 
+    var displayCode = function (funcName) {
+        var div = document.createElement('div');
+        div.className = 'algorithm';
+        div.id = 'algorithm';
+
+        var pre = document.createElement('pre');
+        var code = document.createElement('code');
+        code.innerHTML = sort[funcName];
+        pre.appendChild(code);
+        pre.style.textAlign = 'justify';
+        pre.style.ce = 'justify';
+
+        div.appendChild(pre);
+
+        var ok = document.createElement('div');
+        ok.className = 'linkButton';
+        ok.id = 'ok';
+        var a1 = document.createElement('a');
+
+        var spanA1 = document.createElement('span');
+        spanA1.innerHTML = 'Ok';
+        a1.appendChild(spanA1);
+        ok.appendChild(a1);
+        ok.addEventListener('click', function (event) {
+            document.getElementById('centering').style.opacity = 1;
+            document.getElementById('content').removeChild(document.getElementById('algorithm'));
+        });
+        div.appendChild(ok);
+
+        document.getElementById('content').replaceChild(div, document.getElementById('algorithm'));
+
+
+    };
+
     var showSortedArray = function (array, funcName) {
-        document.getElementById('centering').style.opacity = 0.3;
 
         var div = document.createElement('div');
         div.className = 'algorithm';
         div.id = 'algorithm';
-        div.textContent = array;
-        alert(array);
 
-        var infoBlock = document.getElementById('algorithm');
-        document.getElementById('content').appendChild(div);
+        var p = document.createElement('p');
+        p.innerHTML = 'Sorted array: <br>' +
+            '[' + array.join(', ') + ']';
+        div.appendChild(p);
 
-        // if (infoBlock) {
-        //     document.getElementById('content').replaceChild(div, infoBlock);
-        // } else {
-        //     document.getElementById('content').appendChild(div);
-        // }
+        var buttonsBlock = document.createElement('div');
+        buttonsBlock.className = 'buttons';
+
+        var back = document.createElement('div');
+        back.className = 'linkButton';
+        back.id = 'back';
+        var a1 = document.createElement('a');
+
+        var spanA1 = document.createElement('span');
+        spanA1.innerHTML = 'Back';
+        a1.appendChild(spanA1);
+        back.appendChild(a1);
+        back.addEventListener('click', function (event) {
+            document.getElementById('centering').style.opacity = 1;
+            document.getElementById('content').removeChild(document.getElementById('algorithm'));
+        });
+
+
+        var showCode = document.createElement('div');
+        showCode.className = 'linkButton';
+        showCode.id = 'show';
+        var a2 = document.createElement('a');
+        var spanA2 = document.createElement('span');
+        spanA2.innerHTML = 'Show code';
+        a2.appendChild(spanA2);
+        showCode.appendChild(a2);
+        showCode.addEventListener('click', function (event) {
+            displayCode(funcName);
+        });
+
+        buttonsBlock.appendChild(back);
+        buttonsBlock.appendChild(showCode);
+        div.appendChild(buttonsBlock);
+
+
+        document.getElementById('centering').style.opacity = 0.3;
+
+
+
+        document.getElementById('content').insertBefore(div, document.getElementById('content').firstChild);
+        // var infoBlock = document.getElementById('algorithm');
+        // document.body.insertBefore(div, document.getElementById('centering'));
+        // document.getElementById('content').appendChild(div);
+
+
     };
 
     return {

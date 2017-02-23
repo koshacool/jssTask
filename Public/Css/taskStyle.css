@@ -37,6 +37,7 @@ body {
     border: 1px solid white;
     margin-left: 10px;
     margin-top: 30px;
+    margin-bottom: 15px;
 }
 
 .linkButton:hover {
@@ -70,14 +71,15 @@ body {
     color: white;
 }
 
-
-
 .centering {
     margin: auto;
     text-align: center;
+    word-wrap: break-word;
 }
-.centering > p{
+
+.centering > p {
     display: block;
+    line-height: 1.6;
 }
 
 .content {
@@ -96,5 +98,26 @@ body {
 
 li {
     list-style-position: inside;
+}
+
+.algorithm {
+    color: white;
+    z-index: 999;
+    position: absolute;
+    margin: auto;
+    max-width: 50%;
+    height: auto;
+    /*max-height: 300px;*/
+    top: 0;
+    left: 0;
+    mso-border-shadow: ;
+    right: 0;
+    margin-top: 10%;
+    text-align: center;
+    background: #3e3e43;
+    box-shadow: 0 0  10px #000;
+}
+code {
+    margin: auto;
 }
 
