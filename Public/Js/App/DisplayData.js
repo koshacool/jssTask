@@ -22,9 +22,22 @@ define(['sort'], function (sort) {
 
         var info = document.createElement('p');
         info.className = 'info';
-        info.innerHTML = 'My name Roman. I very like programming. I already studied such languages: ';
+        info.innerHTML = '05.08.1985 <br>' +
+            'Ternopil<br>' +
+            '096-821-859-1<br>' +
+            'roman.kushytskyy@gmail.com<br>' +
+                '<b>Education</b><br>' +
+                'Ternopil National Economics University<br>' +
+                'Faculty: Computer Systems and Networks <br>' +
+                'Speciality: Computer Systems Engineer<br>' +
+                '<b>Work experience</b><br>' +
+                'Since 2006 - Computer Systems Engineer at internet provider \'BitterNet\'<br>' +
+            '<b>Skills</b><br>' ;
 
         var list = document.createElement('ul');
+        var li = document.createElement('li');
+        li.innerHTML = 'Network administration, support and architect';
+        list.appendChild(li);
 
         var li1 = document.createElement('li');
         li1.innerHTML = 'PHP';
@@ -39,21 +52,20 @@ define(['sort'], function (sort) {
         list.appendChild(li3);
         info.appendChild(list);
 
+        var info1 = document.createElement('p');
+        info1.className = 'info';
+        info1.innerHTML = 'I love computers and everything about them. ' +
+            'I spend eight to ten hours a day in front of a computer screen as ' +
+            'researching, analysing, evaluating and monitoring network infrastructure. Recently I started to learn '+
+            'coding, because I realised, that this knowledge wasn’t enough for me. ' +
+            'I like programming, because it helps me to create something new and functional, ' +
+            'to break a complicate problem down and find working solution. ';
+
+        info.appendChild(info1);
+
         infoBlock.appendChild(info);
 
         return infoBlock;
-    };
-
-    var createArray = function () {
-        var size = document.getElementById('size').value;
-        if (size) {
-            var array = [];
-            for (var i = 0; i < size; i++) {
-                array[i] = i;
-            }
-            document.getElementById('contentBlock').replaceChild(algorithmsButton(shuffleArray(array)), document.getElementById('content'));
-
-        }
     };
 
     var getDataToCreateArray = function () {
@@ -63,14 +75,18 @@ define(['sort'], function (sort) {
         content.className = 'content';
         content.id = 'content';
 
+        var centering = document.createElement('div');
+        centering.className = 'centering';
+        centering.id = 'centering';
+
         var h2 = document.createElement('h2');
         h2.innerHTML = 'Enter a number to create array of this size!';
-        content.appendChild(h2);
+        centering.appendChild(h2);
 
         var input = document.createElement('input');
         input.id = 'size';
         input.value = 100;
-        content.appendChild(input);
+        centering.appendChild(input);
 
 
         var buttonsBlock = document.createElement('div');
@@ -103,11 +119,24 @@ define(['sort'], function (sort) {
 
         buttonsBlock.appendChild(buttonYes);
         buttonsBlock.appendChild(buttonNo);
-        content.appendChild(buttonsBlock);
+        centering.appendChild(buttonsBlock);
+        content.appendChild(centering);
 
         document.getElementById('contentBlock').replaceChild(content, document.getElementById('content'));
 
 
+    };
+
+    var createArray = function () {
+        var size = document.getElementById('size').value;
+        if (size) {
+            var array = [];
+            for (var i = 0; i < size; i++) {
+                array[i] = i;
+            }
+            document.getElementById('contentBlock').replaceChild(algorithmsButton(shuffleArray(array)), document.getElementById('content'));
+
+        }
     };
 
     var shuffleArray = function (array) {
@@ -244,7 +273,6 @@ define(['sort'], function (sort) {
 
 
         document.getElementById('centering').style.opacity = 0.3;
-
 
 
         document.getElementById('content').insertBefore(div, document.getElementById('content').firstChild);
