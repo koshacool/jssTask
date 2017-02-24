@@ -1,8 +1,6 @@
 ;
 define(function () {
-
     return {
-
         /**
          * [bubble description]
          * Sort array in ascending order by bubble method

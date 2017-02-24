@@ -9,17 +9,13 @@ requirejs.config({
 });
 
 requirejs(['sort', 'showData'], function (sort, showData) {
-    document.getElementById('about').addEventListener('click', function (event) {
+    var eboutMe = document.getElementById('about');//Get button 'About me'
+    eboutMe.addEventListener('click', function (event) {
         showData.aboutMe();
-    });
+    });//Set event for click
+    eboutMe.click();//Click the button(display data about me)
+
     document.getElementById('sort').addEventListener('click', function (event) {
         showData.algorithms();
-    });
-
-    // var arr = [23,56,3,6,8,3,76, 4];
-    // document.getElementById('sort').addEventListener('click', function (event) {
-    //     sort.selection(arr);
-    // });
-
-
+    });//Set event for click
 });
