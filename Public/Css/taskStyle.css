@@ -1,5 +1,4 @@
-/*Style for whole page*/
-body {
+body {/*Style for whole page*/
     margin: 0;
     line-height: 1.1;
     font-family: "Arial Regular", sans-serif;
@@ -8,26 +7,20 @@ body {
     height: 100%;
 }
 
-.wrapper {
-    min-height: 100%;
-}
-
-/*Header block*/
-.header {
+.header {/*Header block*/
     height: 85px;
     background-color: #3e3e43;
 }
 
-/*Block for buttons in header*/
-.headerButtonsBlock {
+.headerButtonsBlock {/*Block for buttons in header*/
     min-width: 110px;
     max-width: 240px;
     margin: auto;
     height: 100%;
 }
 
-/* Style link as button */
-.linkButton {
+
+.linkButton {/* Link style  as button */
     text-align: center;
     margin: auto;
     display: inline-block;
@@ -37,6 +30,7 @@ body {
     border: 1px solid white;
     margin-left: 10px;
     margin-top: 30px;
+    margin-bottom: 15px;
 }
 
 .linkButton:hover {
@@ -47,8 +41,8 @@ body {
     background: linear-gradient(#404040, #090909);
 }
 
-/*Position and styling link inside block*/
-.linkButton a {
+
+.linkButton a {/*Position and styling link inside button block*/
     text-decoration: none;
     color: #e9eaea;
     margin-top: 5px;
@@ -56,42 +50,72 @@ body {
     display: block;
 }
 
-/*Footer style*/
-.footer {
-    position: absolute;
-    bottom: 10px;
-    margin-top: 20px;
-    width: 100%;
-    left: 0;
-    text-align: center;
-    /*padding-top: 50px;*/
-
-    background-color: #3e3e43;
-    color: white;
+.contentBlock {/*Content block style*/
+    min-height:100%;
+    overflow:auto;
+    padding-bottom: 70px;
+    font-size: 10pt;
 }
 
-
-
-.centering {
-    margin: auto;
-    text-align: center;
-}
-
-
-.content {
+.content {/*Content style*/
     max-width: 50%;
     margin: auto;
-
     color: black;
     text-align: left;
     word-spacing: normal;
 }
 
-.myImage {
-    float: left;
-    margin-right: 20px;
+.footer {/*Footer style*/
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    /*padding: 10px;*/
+    width: 100%;
+    text-align: center;
+    background-color: #3e3e43;
+    color: white;
 }
 
+.centering {
+    margin: auto;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.myImage {/*image style*/
+    float: left;
+    margin: 0 20px 20px 0;
+}
+
+.algorithm {/*Style for block with result sorting and display code*/
+    color: white;
+    z-index: 999;
+    position: absolute;
+    margin: auto;
+    max-width: 50%;
+    height: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-top: 10%;
+    text-align: center;
+    background: #3e3e43;
+    box-shadow: 0 0 10px #000;
+}
+
+code {/*Displayed code style*/
+    font-size: 10pt;
+    margin-left: 25px;
+}
+
+h4 {
+    margin-bottom: 5px;
+    padding-left: 40px;
+}
+
+ul {
+    margin-top: 5px;
+}
 li {
     list-style-position: inside;
 }
